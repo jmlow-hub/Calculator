@@ -6,7 +6,40 @@
   display: grid;
   grid-template-columns: auto auto auto auto;
   justify-content: space-around;
-  gap: 20px;
+  gap: 10px;
   color: $text-color;
+  font-family: $font;
 
-}
+  p {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  &__misc {
+    background-color: $other-button-color;
+
+      }
+
+  &__numbers {
+    background-color: $number-color;
+
+  }
+
+  &__actions {
+    background-color: $operator-color;
+  }
+
+  &__zero {
+    grid-column: 1 / span 2;
+    background: $number-color;
+
+  
+  }
+
+    
+
+    }
+
+  
