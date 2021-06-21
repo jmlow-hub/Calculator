@@ -1,0 +1,9 @@
+.calculator__keys {
+  height: 70%;
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-around;
+  gap: 20px;
+  color: white;
+}
