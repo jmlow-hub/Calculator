@@ -8,6 +8,15 @@
   color: white;
   font-family: "Roboto", sans-serif;
   font-size: 1.5em;
+  /*p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 20px;
+  }*/
 }
 .calculator__keys__misc {
   background-color: lightgray;
@@ -18,12 +27,12 @@
 .calculator__keys__actions {
   background-color: orange;
 }
-.calculator__keys p {
+.calculator__keys button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 30%;
+  height: 30%;
   border-radius: 50%;
   padding: 20px;
 }
@@ -34,7 +43,7 @@
   background: darkgrey;
   justify-self: center;
 }
-.calculator__keys__zero p {
+.calculator__keys__zero button {
   width: 45px;
   height: 30px;
   border-radius: 10%;

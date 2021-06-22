@@ -26,7 +26,18 @@
     background-color: $operator-color;
   }
 
-  p {
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    padding: 20px;
+
+  }
+
+  /*p {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,7 +45,7 @@
     height: 30px;
     border-radius: 50%;
     padding: 20px;
-  }
+  }*/
 
   &__zero {
     display: flex;
@@ -44,7 +55,7 @@
     background: $number-color;
     justify-self: center;
     
-      p {
+      button {
         width: 45px;
         height: 30px;
         border-radius: 10%;
