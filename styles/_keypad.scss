@@ -9,14 +9,9 @@
   gap: 10px;
   color: $text-color;
   font-family: $font;
+  font-size: 1.5em;
 
-  p {
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-  }
-  
+ 
   &__misc {
     background-color: $other-button-color;
 
@@ -31,15 +26,34 @@
     background-color: $operator-color;
   }
 
-  &__zero {
-    grid-column: 1 / span 2;
-    background: $number-color;
-
-  
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 20px;
   }
 
+  &__zero {
+    display: flex;
+    justify-content: stretch;
+   
+    grid-column: 1 / span 2;
+    background: $number-color;
+    justify-self: center;
     
+      p {
+        width: 45px;
+        height: 30px;
+        border-radius: 10%;
+        padding-left: 40px;
+        padding-right: 40px;
+            
+      }
+    
+  }
+}
 
-    }
 
-  

@@ -11,10 +11,13 @@
   background-color: black;
 
     &__display {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
       height: 20%;
+      width: 95%;
       margin: 10px;
       color: $text-color;
-      align-self: flex-end;
       font-family: $font;
     }
  
