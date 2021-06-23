@@ -39,10 +39,10 @@
   }
 
   button {
-    width: 60%;
-    height: 95%;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    font-size: 150%;
+    font-size: 120%;
     border: none;
     cursor: pointer;
     
@@ -59,10 +59,45 @@
 }
 
 #zero {
-  width: 80%;
-  height: 100%;
+  width: 120px;
+  height: 40px;
   border-radius: 40px;
   text-align: left;
   padding-left: 20px;
 }
+
+
+
+
+@media screen and (min-width: 470px) {
+  .calculator__keys {
+    button {
+    height: 60px;
+    width: 60px;
+    font-size: 175%;
+    }
+
+    #zero {
+      width: 140px;
+      height: 60px;
+     
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .calculator__keys {
+    button {
+      width: 65px;
+      height: 65px;
+    }
+
+    #zero {
+      width: 220px;
+      height: 60px;
+     
+    }
+
+  }
+  }
 
