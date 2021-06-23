@@ -2,21 +2,22 @@
 
 
 .calculator {
-  width: 70%;
-  height: 60%;
+  width: 70vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background-color: black;
+  font-size: 20px;
 
     &__display {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      height: 20%;
+      height: 10%;
       width: 95%;
-      margin: 10px;
+      margin: 15px;
       color: $text-color;
       font-family: $font;
       font-size: 1.5em;
