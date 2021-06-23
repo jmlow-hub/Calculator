@@ -5,41 +5,84 @@
   width: 90%;
   display: grid;
   grid-template-columns: auto auto auto auto;
-  justify-content: space-around;
-  gap: 10px;
-  color: $text-color;
-  font-family: $font;
-
-  p {
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-  }
+  justify-items: center;
+  align-items: center;
+  gap: 5px;
   
+    
   &__misc {
     background-color: $other-button-color;
+    width: 50%;
+    height: 50%;
 
       }
 
   &__numbers {
     background-color: $number-color;
+    width: 50%;
+    height: 50%; 
+      
 
   }
 
   &__actions {
     background-color: $operator-color;
+    width: 50%;
+    height: 50%;
   }
 
-  &__zero {
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*width: 40%;
+    height: 40%;*/
+    border-radius: 50%;
+    padding: 1.2em;
+    color: $text-color;
+    font-family: $font;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+   
+  }
+
+  /*p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 20px;
+  }
+
+        
+      padding-left: 40px;
+        padding-right: 40px;
+            
+      }*/
+
+  &__zero  {
     grid-column: 1 / span 2;
-    background: $number-color;
+    justify-self: center;
+    background-color: $number-color;
+    width: 90%;
+    height: 50%;
+    border-radius: 2%;
+
+      /*button {
+        padding: 20px 50px;
+        border-radius: 1%;
+      }*/
+      
+
+
 
   
   }
 
-    
+}
 
-    }
 
-  
+

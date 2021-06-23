@@ -8,9 +8,13 @@
   background-color: black;
 }
 .calculator__display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   height: 20%;
+  width: 95%;
   margin: 10px;
   color: white;
-  align-self: flex-end;
   font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
 }
