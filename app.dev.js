@@ -24,16 +24,30 @@ var clear = document.getElementById("clear");
 var buttons = document.querySelectorAll("button");
 var display = document.querySelector("p"); //array to hold the values clicked
 
-var displayArr = [];
-console.log(buttons[5].value); //set up loop that targets each button, on click pushes the value of the button being iterated over to the array and displays on the "screen"
+var buttonValuesArr = []; //set up loop that targets each button, on click pushes the value of the button being iterated over to the button values array
 
 var _loop = function _loop(i) {
   buttons[i].onclick = function (e) {
-    displayArr.push(buttons[i].value);
-    display.innerHTML = displayArr;
+    buttonValuesArr.push(buttons[i].value); //displays array with commas removed
+
+    display.innerHTML = buttonValuesArr.join("");
   };
 };
 
 for (var i = 0; i < buttons.length; i++) {
   _loop(i);
-}
+} //extract values from array to use in sum
+
+
+var calculateValues = equals.addEventListener("click", function (e) {
+  var newValuesArr = buttonValuesArr.join("");
+  var stringOfValues = newValuesArr.toString(); //use reg-ex to extract values before the operator
+
+  var firstNumber = stringOfValues.match(/[^\+\*\-\\]*/);
+  var secondNumber = stringOfValues.match(/[^\+\*\-\\]*$/);
+  var operator = stringOfValues.match(/[\+|\*|\-|\\]/);
+  console.log(stringOfValues);
+  console.log(firstNumber);
+  console.log(secondNumber);
+  console.log(operator);
+});

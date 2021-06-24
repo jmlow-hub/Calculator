@@ -25,17 +25,42 @@ const buttons = document.querySelectorAll("button");
 const display = document.querySelector("p");
 
 //array to hold the values clicked
-const displayArr = [];
+const buttonValuesArr = [];
 
-console.log(buttons[5].value);
 
-//set up loop that targets each button, on click pushes the value of the button being iterated over to the array and displays on the "screen"
+//set up loop that targets each button, on click pushes the value of the button being iterated over to the button values array
 for(let i = 0; i < buttons.length; i++) {
   buttons[i].onclick = (e) => {
-    displayArr.push(buttons[i].value);
-    display.innerHTML = displayArr;
+    buttonValuesArr.push(buttons[i].value);
+    //displays array with commas removed
+    display.innerHTML = buttonValuesArr.join("");
   } 
 
-  
 }
+
+
+//extract values from array to use in sum
+const calculateValues = equals.addEventListener("click", (e) => {
+
+  const newValuesArr = buttonValuesArr.join("");
+  const stringOfValues = newValuesArr.toString();
+  //use reg-ex to extract values before the operator
+  
+  const firstNumber = stringOfValues.match(/[^\+\*\-\\]*/);
+  const secondNumber = stringOfValues.match(/[^\+\*\-\\]*$/);
+  const operator = stringOfValues.match(/[\+|\*|\-|\\]/);
+  
+
+  console.log(stringOfValues);
+  console.log(firstNumber);
+  console.log(secondNumber);
+  console.log(operator);
+  })
+
+  
+
+  
+
+
+
 
