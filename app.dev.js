@@ -43,11 +43,21 @@ var calculateValues = equals.addEventListener("click", function (e) {
   var newValuesArr = buttonValuesArr.join("");
   var stringOfValues = newValuesArr.toString(); //use reg-ex to extract values before the operator
 
-  var firstNumber = stringOfValues.match(/[^\+\*\-\\]*/);
-  var secondNumber = stringOfValues.match(/[^\+\*\-\\]*$/);
-  var operator = stringOfValues.match(/[\+|\*|\-|\\]/);
-  console.log(stringOfValues);
-  console.log(firstNumber);
-  console.log(secondNumber);
-  console.log(operator);
+  var firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
+  var secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+  var operator = stringOfValues.match(/[\+|\*|\-|\/]/); //if statement to calculate output based on operator value
+
+  var total = 0;
+
+  if (operator == "+") {
+    total = parseFloat(firstNumber) + parseFloat(secondNumber);
+  } else if (operator == "*") {
+    total = parseFloat(firstNumber) * parseFloat(secondNumber);
+  } else if (operator == "/") {
+    total = parseFloat(firstNumber) / parseFloat(secondNumber);
+  } else if (operator == "-") {
+    total = parseFloat(firstNumber) - parseFloat(secondNumber);
+  }
+
+  display.innerHTML = total;
 });
