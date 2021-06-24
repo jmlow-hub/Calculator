@@ -41,20 +41,28 @@ for(let i = 0; i < buttons.length; i++) {
 
 //extract values from array to use in sum
 const calculateValues = equals.addEventListener("click", (e) => {
-
   const newValuesArr = buttonValuesArr.join("");
   const stringOfValues = newValuesArr.toString();
   //use reg-ex to extract values before the operator
   
-  const firstNumber = stringOfValues.match(/[^\+\*\-\\]*/);
-  const secondNumber = stringOfValues.match(/[^\+\*\-\\]*$/);
-  const operator = stringOfValues.match(/[\+|\*|\-|\\]/);
-  
+  const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
+  const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+  const operator = stringOfValues.match(/[\+|\*|\-|\/]/);
 
-  console.log(stringOfValues);
-  console.log(firstNumber);
-  console.log(secondNumber);
-  console.log(operator);
+  //if statement to calculate output based on operator value
+  let total = 0;
+  if (operator == "+") {
+    total = parseFloat(firstNumber) + parseFloat(secondNumber);
+  } else if (operator == "*") {
+    total = parseFloat(firstNumber) * parseFloat(secondNumber);
+  } else if (operator == "/") {
+    total = parseFloat(firstNumber) / parseFloat(secondNumber);
+  } else if (operator == "-") {
+    total = parseFloat(firstNumber) - parseFloat(secondNumber);
+  }
+  
+  display.innerHTML = total;
+
   })
 
   
