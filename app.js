@@ -39,6 +39,7 @@ for(let i = 0; i < buttons.length; i++) {
 }
 
 
+
 //extract values from array to use in sum
 const calculateValues = equals.addEventListener("click", (e) => {
   const newValuesArr = buttonValuesArr.join("");
@@ -61,11 +62,18 @@ const calculateValues = equals.addEventListener("click", (e) => {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
   }
   
-  display.innerHTML = total;
+  display.innerHTML = total.toFixed(4);
 
   })
 
-  
+//clear button functionality
+ const clickClear = clear.addEventListener("click", (e) => {
+ 
+  buttonValuesArr.length = 0;
+  display.innerHTML = "";
+
+})
+
 
   
 

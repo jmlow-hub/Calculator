@@ -59,5 +59,10 @@ var calculateValues = equals.addEventListener("click", function (e) {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
   }
 
-  display.innerHTML = total;
+  display.innerHTML = total.toFixed(4);
+}); //clear button functionality
+
+var clickClear = clear.addEventListener("click", function (e) {
+  buttonValuesArr.length = 0;
+  display.innerHTML = "";
 });
