@@ -26,17 +26,22 @@ for (var i = 0; i < buttons.length; i++) {
 var calculateValues = equals.addEventListener("click", function (e) {
   var newValuesArr = buttonValuesArr.join("");
   var stringOfValues = newValuesArr.toString(); //use reg-ex to extract values before the operator
+  //const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
 
-  var firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
-  var secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+  var firstNumber = stringOfValues.match(/[(?<=\s)(.*)(?=\s)]/); //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+
+  var secondNumber = stringOfValues.match(/[^\s]*$/);
   var operator = stringOfValues.match(/[\+|\*|\-|\/]/);
-  var pAge = stringOfValues.match(/%/); //if statement to calculate output based on operator value
+  console.log(firstNumber);
+  console.log(secondNumber);
+  console.log(operator);
+  console.log(newValuesArr[0]); //if statement to calculate output based on operator value
 
   var total = 0;
 
   if (operator == "+") {
     total = parseFloat(firstNumber) + parseFloat(secondNumber);
-  } else if (operator == "*" && pAge != "%") {
+  } else if (operator == "*" && !newValuesArr.includes("%")) {
     total = parseFloat(firstNumber) * parseFloat(secondNumber);
   } else if (operator == "/") {
     total = parseFloat(firstNumber) / parseFloat(secondNumber);
@@ -44,9 +49,13 @@ var calculateValues = equals.addEventListener("click", function (e) {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
   } else if (newValuesArr.includes("%")) {
     total = parseFloat(firstNumber) / 100 * parseFloat(secondNumber);
-  }
+  } //else if (newValuesArr[0] == "-") {
+  //total = -Math.abs(parseFloat(firstNumber)) + parseFloat(secondNumber);
+  //}
+
 
   if (Number.isInteger(total)) {
+    //evaluates if total contains decimal point. and returns true or false.
     display.innerHTML = total.toFixed(0);
   } else {
     display.innerHTML = total.toFixed(5);

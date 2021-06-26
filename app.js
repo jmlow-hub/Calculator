@@ -3,9 +3,7 @@
 const equals = document.getElementById("output");
 const plusMinus = document.getElementById("plus-minus")//
 const clear = document.getElementById("clear");
-
 const buttons = document.querySelectorAll("button");
-
 const display = document.querySelector("p");
 
 //array to hold the values clicked
@@ -27,10 +25,21 @@ const calculateValues = equals.addEventListener("click", (e) => {
   const stringOfValues = newValuesArr.toString();
   //use reg-ex to extract values before the operator
   
-  const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
-  const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+  //const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
+  const firstNumber = stringOfValues.match(/[(?<=\s)(.*)(?=\s)]/);
+
+ 
+ 
+ //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+  const secondNumber = stringOfValues.match(/[^\s]*$/);
+
   const operator = stringOfValues.match(/[\+|\*|\-|\/]/);
-  const pAge = stringOfValues.match(/%/);
+
+  console.log(firstNumber);
+  console.log(secondNumber);
+  console.log(operator);
+  console.log(newValuesArr[0]);
+  
 
     
     //if statement to calculate output based on operator value
@@ -38,7 +47,7 @@ const calculateValues = equals.addEventListener("click", (e) => {
    
   if (operator == "+") {
     total = parseFloat(firstNumber) + parseFloat(secondNumber);
-  } else if (operator == "*" && pAge != "%") {
+  } else if (operator == "*" && !newValuesArr.includes("%")) {
     total = parseFloat(firstNumber) * parseFloat(secondNumber);
   } else if (operator == "/") {
     total = parseFloat(firstNumber) / parseFloat(secondNumber);
@@ -46,10 +55,14 @@ const calculateValues = equals.addEventListener("click", (e) => {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
   } else if (newValuesArr.includes("%")) {
     total = (parseFloat(firstNumber) / 100) * parseFloat(secondNumber);
-  }
-    
+  } //else if (newValuesArr[0] == "-") {
+    //total = -Math.abs(parseFloat(firstNumber)) + parseFloat(secondNumber);
+  //}
   
-  if (Number.isInteger(total)) {
+
+
+
+    if (Number.isInteger(total)) { //evaluates if total contains decimal point. and returns true or false.
     display.innerHTML = total.toFixed(0);
   } else {
     display.innerHTML = total.toFixed(5);
