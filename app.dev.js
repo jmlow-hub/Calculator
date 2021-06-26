@@ -1,24 +1,8 @@
 "use strict";
 
 //grab html elements
-var one = document.getElementById("1"); //
-
-var two = document.getElementById("2");
-var three = document.getElementById("3");
-var four = document.getElementById("4");
-var five = document.getElementById("5");
-var six = document.getElementById("6");
-var seven = document.getElementById("7");
-var eight = document.getElementById("8");
-var nine = document.getElementById("9");
-var pAge = document.getElementById("p-age");
-var multiply = document.getElementById("multiply");
-var divide = document.getElementById("divide");
-var subtract = document.getElementById("subtract");
-var add = document.getElementById("add");
-var zero = document.getElementById("zero");
-var point = document.getElementById("point");
-var equals = document.getElementById("output"); //const plusMinus = document.getElementById("plus-minus")//
+var equals = document.getElementById("output");
+var plusMinus = document.getElementById("plus-minus"); //
 
 var clear = document.getElementById("clear");
 var buttons = document.querySelectorAll("button");
@@ -62,7 +46,11 @@ var calculateValues = equals.addEventListener("click", function (e) {
     total = parseFloat(firstNumber) / 100 * parseFloat(secondNumber);
   }
 
-  display.innerHTML = total.toFixed(4);
+  if (Number.isInteger(total)) {
+    display.innerHTML = total.toFixed(0);
+  } else {
+    display.innerHTML = total.toFixed(5);
+  }
 }); //clear button functionality
 
 var clickClear = clear.addEventListener("click", function (e) {

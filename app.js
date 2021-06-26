@@ -1,23 +1,7 @@
 //grab html elements
 
-const one = document.getElementById("1")//
-const two = document.getElementById("2")
-const three = document.getElementById("3")
-const four = document.getElementById("4")
-const five = document.getElementById("5")
-const six = document.getElementById("6")
-const seven = document.getElementById("7")
-const eight = document.getElementById("8")
-const nine = document.getElementById("9")
-const pAge = document.getElementById("p-age")
-const multiply = document.getElementById("multiply")
-const divide = document.getElementById("divide")
-const subtract = document.getElementById("subtract")
-const add = document.getElementById("add")
-const zero = document.getElementById("zero")
-const point = document.getElementById("point")
 const equals = document.getElementById("output");
-//const plusMinus = document.getElementById("plus-minus")//
+const plusMinus = document.getElementById("plus-minus")//
 const clear = document.getElementById("clear");
 
 const buttons = document.querySelectorAll("button");
@@ -35,7 +19,6 @@ for(let i = 0; i < buttons.length; i++) {
     //displays array with commas removed
     display.innerHTML = buttonValuesArr.join("");
   } 
-
 }
 
 //extract values from array to use in sum
@@ -50,18 +33,9 @@ const calculateValues = equals.addEventListener("click", (e) => {
   const pAge = stringOfValues.match(/%/);
 
     
-  
-  
-  
-  
-  
-
-  
-
-  //if statement to calculate output based on operator value
+    //if statement to calculate output based on operator value
   let total = 0;
-  
-    
+   
   if (operator == "+") {
     total = parseFloat(firstNumber) + parseFloat(secondNumber);
   } else if (operator == "*" && pAge != "%") {
@@ -71,13 +45,15 @@ const calculateValues = equals.addEventListener("click", (e) => {
   } else if (operator == "-") {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
   } else if (newValuesArr.includes("%")) {
-    total = (parseFloat(firstNumber) / 100) *parseFloat(secondNumber);
+    total = (parseFloat(firstNumber) / 100) * parseFloat(secondNumber);
   }
     
-
   
-  
-  display.innerHTML = total.toFixed(4);
+  if (Number.isInteger(total)) {
+    display.innerHTML = total.toFixed(0);
+  } else {
+    display.innerHTML = total.toFixed(5);
+  }
 
   })
 
