@@ -45,24 +45,28 @@ var calculateValues = equals.addEventListener("click", function (e) {
 
   var firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
   var secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
-  var operator = stringOfValues.match(/[\+|\*|\-|\/]/); //if statement to calculate output based on operator value
+  var operator = stringOfValues.match(/[\+|\*|\-|\/]/);
+  var pAge = stringOfValues.match(/%/); //if statement to calculate output based on operator value
 
   var total = 0;
 
   if (operator == "+") {
     total = parseFloat(firstNumber) + parseFloat(secondNumber);
-  } else if (operator == "*") {
+  } else if (operator == "*" && pAge != "%") {
     total = parseFloat(firstNumber) * parseFloat(secondNumber);
   } else if (operator == "/") {
     total = parseFloat(firstNumber) / parseFloat(secondNumber);
   } else if (operator == "-") {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
+  } else if (newValuesArr.includes("%")) {
+    total = parseFloat(firstNumber) / 100 * parseFloat(secondNumber);
   }
 
   display.innerHTML = total.toFixed(4);
 }); //clear button functionality
 
 var clickClear = clear.addEventListener("click", function (e) {
-  buttonValuesArr.length = 0;
+  buttonValuesArr.length = 0; //resets array to 0 length
+
   display.innerHTML = "";
 });

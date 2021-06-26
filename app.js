@@ -38,8 +38,6 @@ for(let i = 0; i < buttons.length; i++) {
 
 }
 
-
-
 //extract values from array to use in sum
 const calculateValues = equals.addEventListener("click", (e) => {
   const newValuesArr = buttonValuesArr.join("");
@@ -49,27 +47,47 @@ const calculateValues = equals.addEventListener("click", (e) => {
   const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
   const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
   const operator = stringOfValues.match(/[\+|\*|\-|\/]/);
+  const pAge = stringOfValues.match(/%/);
+
+    
+  
+  
+  
+  
+  
+
+  
 
   //if statement to calculate output based on operator value
   let total = 0;
+  
+    
   if (operator == "+") {
     total = parseFloat(firstNumber) + parseFloat(secondNumber);
-  } else if (operator == "*") {
+  } else if (operator == "*" && pAge != "%") {
     total = parseFloat(firstNumber) * parseFloat(secondNumber);
   } else if (operator == "/") {
     total = parseFloat(firstNumber) / parseFloat(secondNumber);
   } else if (operator == "-") {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
+  } else if (newValuesArr.includes("%")) {
+    total = (parseFloat(firstNumber) / 100) *parseFloat(secondNumber);
   }
+    
+
+  
   
   display.innerHTML = total.toFixed(4);
 
   })
 
+
+
+
 //clear button functionality
  const clickClear = clear.addEventListener("click", (e) => {
  
-  buttonValuesArr.length = 0;
+  buttonValuesArr.length = 0;//resets array to 0 length
   display.innerHTML = "";
 
 })
