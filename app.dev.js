@@ -28,7 +28,7 @@ var calculateValues = equals.addEventListener("click", function (e) {
   var stringOfValues = newValuesArr.toString(); //use reg-ex to extract values before the operator
   //const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
 
-  var firstNumber = stringOfValues.match(/[(?<=\s)(.*)(?=\s)]/); //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+  var firstNumber = stringOfValues.match(/^[^\s]*/); //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
 
   var secondNumber = stringOfValues.match(/[^\s]*$/);
   var operator = stringOfValues.match(/[\+|\*|\-|\/]/);
@@ -49,10 +49,9 @@ var calculateValues = equals.addEventListener("click", function (e) {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
   } else if (newValuesArr.includes("%")) {
     total = parseFloat(firstNumber) / 100 * parseFloat(secondNumber);
-  } //else if (newValuesArr[0] == "-") {
-  //total = -Math.abs(parseFloat(firstNumber)) + parseFloat(secondNumber);
-  //}
-
+  } else if (newValuesArr[0] == "-") {
+    total = -Math.abs(parseFloat(firstNumber)) + parseFloat(secondNumber);
+  }
 
   if (Number.isInteger(total)) {
     //evaluates if total contains decimal point. and returns true or false.

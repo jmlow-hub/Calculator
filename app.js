@@ -26,7 +26,7 @@ const calculateValues = equals.addEventListener("click", (e) => {
   //use reg-ex to extract values before the operator
   
   //const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
-  const firstNumber = stringOfValues.match(/[(?<=\s)(.*)(?=\s)]/);
+  const firstNumber = stringOfValues.match(/^[^\s]*/);
 
  
  
@@ -55,9 +55,9 @@ const calculateValues = equals.addEventListener("click", (e) => {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
   } else if (newValuesArr.includes("%")) {
     total = (parseFloat(firstNumber) / 100) * parseFloat(secondNumber);
-  } //else if (newValuesArr[0] == "-") {
-    //total = -Math.abs(parseFloat(firstNumber)) + parseFloat(secondNumber);
-  //}
+  } else if (newValuesArr[0] == "-") {
+    total = -Math.abs(parseFloat(firstNumber)) + parseFloat(secondNumber);
+  }
   
 
 
