@@ -1,24 +1,8 @@
 "use strict";
 
 //grab html elements
-var one = document.getElementById("1"); //
-
-var two = document.getElementById("2");
-var three = document.getElementById("3");
-var four = document.getElementById("4");
-var five = document.getElementById("5");
-var six = document.getElementById("6");
-var seven = document.getElementById("7");
-var eight = document.getElementById("8");
-var nine = document.getElementById("9");
-var pAge = document.getElementById("p-age");
-var multiply = document.getElementById("multiply");
-var divide = document.getElementById("divide");
-var subtract = document.getElementById("subtract");
-var add = document.getElementById("add");
-var zero = document.getElementById("zero");
-var point = document.getElementById("point");
-var equals = document.getElementById("output"); //const plusMinus = document.getElementById("plus-minus")//
+var equals = document.getElementById("output");
+var plusMinus = document.getElementById("plus-minus"); //
 
 var clear = document.getElementById("clear");
 var buttons = document.querySelectorAll("button");
@@ -42,27 +26,44 @@ for (var i = 0; i < buttons.length; i++) {
 var calculateValues = equals.addEventListener("click", function (e) {
   var newValuesArr = buttonValuesArr.join("");
   var stringOfValues = newValuesArr.toString(); //use reg-ex to extract values before the operator
+  //const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
 
-  var firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
-  var secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
-  var operator = stringOfValues.match(/[\+|\*|\-|\/]/); //if statement to calculate output based on operator value
+  var firstNumber = stringOfValues.match(/[(?<=\s)(.*)(?=\s)]/); //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+
+  var secondNumber = stringOfValues.match(/[^\s]*$/);
+  var operator = stringOfValues.match(/[\+|\*|\-|\/]/);
+  console.log(firstNumber);
+  console.log(secondNumber);
+  console.log(operator);
+  console.log(newValuesArr[0]); //if statement to calculate output based on operator value
 
   var total = 0;
 
   if (operator == "+") {
     total = parseFloat(firstNumber) + parseFloat(secondNumber);
-  } else if (operator == "*") {
+  } else if (operator == "*" && !newValuesArr.includes("%")) {
     total = parseFloat(firstNumber) * parseFloat(secondNumber);
   } else if (operator == "/") {
     total = parseFloat(firstNumber) / parseFloat(secondNumber);
   } else if (operator == "-") {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
-  }
+  } else if (newValuesArr.includes("%")) {
+    total = parseFloat(firstNumber) / 100 * parseFloat(secondNumber);
+  } //else if (newValuesArr[0] == "-") {
+  //total = -Math.abs(parseFloat(firstNumber)) + parseFloat(secondNumber);
+  //}
 
-  display.innerHTML = total.toFixed(4);
+
+  if (Number.isInteger(total)) {
+    //evaluates if total contains decimal point. and returns true or false.
+    display.innerHTML = total.toFixed(0);
+  } else {
+    display.innerHTML = total.toFixed(5);
+  }
 }); //clear button functionality
 
 var clickClear = clear.addEventListener("click", function (e) {
-  buttonValuesArr.length = 0;
+  buttonValuesArr.length = 0; //resets array to 0 length
+
   display.innerHTML = "";
 });
