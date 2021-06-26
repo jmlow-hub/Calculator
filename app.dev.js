@@ -20,18 +20,27 @@ var _loop = function _loop(i) {
 
 for (var i = 0; i < buttons.length; i++) {
   _loop(i);
-} //extract values from array to use in sum
+} //toggle +/- on or off
 
+
+var clickPlusMinusToggle = plusMinus.addEventListener("click", function (e) {
+  if (buttonValuesArr[buttonValuesArr.length - 2] == "-") {
+    //if 
+    buttonValuesArr.splice(buttonValuesArr.length - 2);
+    display.innerHTML = buttonValuesArr.join("");
+  }
+}); //extract values from array to use in sum
 
 var calculateValues = equals.addEventListener("click", function (e) {
   var newValuesArr = buttonValuesArr.join("");
   var stringOfValues = newValuesArr.toString(); //use reg-ex to extract values before the operator
   //const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
 
-  var firstNumber = stringOfValues.match(/[(?<=\s)(.*)(?=\s)]/); //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+  var firstNumber = stringOfValues.match(/^[^\s]*/); //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
 
-  var secondNumber = stringOfValues.match(/[^\s]*$/);
-  var operator = stringOfValues.match(/[\+|\*|\-|\/]/);
+  var secondNumber = stringOfValues.match(/[^\s]*$/); //const operator = stringOfValues.match(/[\+|\*|\-|\/]/);
+
+  var operator = stringOfValues.match(/(?<=\s)[\+|\*|\-|\/](?=\s)/);
   console.log(firstNumber);
   console.log(secondNumber);
   console.log(operator);
@@ -49,10 +58,9 @@ var calculateValues = equals.addEventListener("click", function (e) {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
   } else if (newValuesArr.includes("%")) {
     total = parseFloat(firstNumber) / 100 * parseFloat(secondNumber);
-  } //else if (newValuesArr[0] == "-") {
-  //total = -Math.abs(parseFloat(firstNumber)) + parseFloat(secondNumber);
-  //}
+  }
 
+  ;
 
   if (Number.isInteger(total)) {
     //evaluates if total contains decimal point. and returns true or false.
