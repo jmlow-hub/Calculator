@@ -1,6 +1,6 @@
 .calculator {
   width: 70vw;
-  height: 60vh;
+  height: 55vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,6 +16,19 @@
   width: 95%;
   margin: 15px;
   color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.5em;
+  font-family: "Helvetica", sans-serif;
+  font-size: 2em;
+}
+
+@media screen and (min-width: 768px) {
+  .calculator__display {
+    height: 25%;
+    font-size: 4em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .calculator__display {
+    height: 25%;
+    font-size: 5em;
+  }
 }

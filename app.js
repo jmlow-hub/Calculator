@@ -1,5 +1,4 @@
 //grab html elements
-
 const equals = document.getElementById("output");
 const plusMinus = document.getElementById("plus-minus")//
 const clear = document.getElementById("clear");
@@ -9,20 +8,19 @@ const display = document.querySelector("p");
 //array to hold the values clicked
 const buttonValuesArr = [];
 
-
 //set up loop that targets each button, on click pushes the value of the button being iterated over to the button values array
 
 for(let i = 0; i < buttons.length; i++) {
   buttons[i].onclick = (e) => {
-    buttonValuesArr.push(buttons[i].value);
+  buttonValuesArr.push(buttons[i].value);
     //displays array with commas removed
-    display.innerHTML = buttonValuesArr.join("");
-  } 
+     display.innerHTML = buttonValuesArr.join("");
+   } 
 }
 
 //toggle +/- on or off
-const clickPlusMinusToggle = plusMinus.addEventListener("click", (e) => {
-  if (buttonValuesArr[buttonValuesArr.length-2] == "-") { //if 
+const handlePlusMinusToggle = plusMinus.addEventListener("click", (e) => {
+  if (buttonValuesArr[buttonValuesArr.length-2] == "-") {
     buttonValuesArr.splice(buttonValuesArr.length-2);
     display.innerHTML = buttonValuesArr.join("");
   }
@@ -31,37 +29,28 @@ const clickPlusMinusToggle = plusMinus.addEventListener("click", (e) => {
 
 
 //extract values from array to use in sum
-const calculateValues = equals.addEventListener("click", (e) => {
+const handleEquals = equals.addEventListener("click", (e) => {
   const newValuesArr = buttonValuesArr.join("");
   const stringOfValues = newValuesArr.toString();
+
   //use reg-ex to extract values before the operator
   
-  //const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
   const firstNumber = stringOfValues.match(/^[^\s]*/);
 
-  
- //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+ 
   const secondNumber = stringOfValues.match(/[^\s]*$/);
 
   //const operator = stringOfValues.match(/[\+|\*|\-|\/]/);
-  const operator = stringOfValues.match(/(?<=\s)[\+|\*|\-|\/](?=\s)/);
+  const operator = stringOfValues.match(/(?<=\s)[\+|\x|\-|\÷](?=\s)/);
 
-
-  console.log(firstNumber);
-  console.log(secondNumber);
-  console.log(operator);
-  console.log(newValuesArr[0]);
-  
-
-    
-    //if statement to calculate output based on operator value
-  let total = 0;
    
-  if (operator == "+") {
+    //if statement to calculate output based on operator value
+    let total = 0;
+    if (operator == "+") {
     total = parseFloat(firstNumber) + parseFloat(secondNumber);
-  } else if (operator == "*" && !newValuesArr.includes("%")) {
+  } else if (operator == "x" && !newValuesArr.includes("%")) {
     total = parseFloat(firstNumber) * parseFloat(secondNumber);
-  } else if (operator == "/") {
+  } else if (operator == "÷") {
     total = parseFloat(firstNumber) / parseFloat(secondNumber);
   } else if (operator == "-") {
     total = parseFloat(firstNumber) - parseFloat(secondNumber);
@@ -80,7 +69,7 @@ const calculateValues = equals.addEventListener("click", (e) => {
 
 
 //clear button functionality
- const clickClear = clear.addEventListener("click", (e) => {
+ const handleClear = clear.addEventListener("click", (e) => {
     
   buttonValuesArr.length = 0;//resets array to 0 length
   display.innerHTML = "";
