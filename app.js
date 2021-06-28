@@ -20,7 +20,7 @@ for(let i = 0; i < buttons.length; i++) {
 
 //toggle +/- on or off
 const handlePlusMinusToggle = plusMinus.addEventListener("click", (e) => {
-  if (buttonValuesArr[buttonValuesArr.length-2] == "-") { //if 
+  if (buttonValuesArr[buttonValuesArr.length-2] == "-") {
     buttonValuesArr.splice(buttonValuesArr.length-2);
     display.innerHTML = buttonValuesArr.join("");
   }
@@ -34,11 +34,10 @@ const handleEquals = equals.addEventListener("click", (e) => {
   const stringOfValues = newValuesArr.toString();
 
   //use reg-ex to extract values before the operator
-  //const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
+  
   const firstNumber = stringOfValues.match(/^[^\s]*/);
 
-
- //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
+ 
   const secondNumber = stringOfValues.match(/[^\s]*$/);
 
   //const operator = stringOfValues.match(/[\+|\*|\-|\/]/);
@@ -46,9 +45,8 @@ const handleEquals = equals.addEventListener("click", (e) => {
 
    
     //if statement to calculate output based on operator value
-  let total = 0;
-   
-  if (operator == "+") {
+    let total = 0;
+    if (operator == "+") {
     total = parseFloat(firstNumber) + parseFloat(secondNumber);
   } else if (operator == "x" && !newValuesArr.includes("%")) {
     total = parseFloat(firstNumber) * parseFloat(secondNumber);
@@ -71,7 +69,7 @@ const handleEquals = equals.addEventListener("click", (e) => {
 
 
 //clear button functionality
- const clickClear = clear.addEventListener("click", (e) => {
+ const handleClear = clear.addEventListener("click", (e) => {
     
   buttonValuesArr.length = 0;//resets array to 0 length
   display.innerHTML = "";

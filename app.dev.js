@@ -25,7 +25,6 @@ for (var i = 0; i < buttons.length; i++) {
 
 var handlePlusMinusToggle = plusMinus.addEventListener("click", function (e) {
   if (buttonValuesArr[buttonValuesArr.length - 2] == "-") {
-    //if 
     buttonValuesArr.splice(buttonValuesArr.length - 2);
     display.innerHTML = buttonValuesArr.join("");
   }
@@ -34,10 +33,8 @@ var handlePlusMinusToggle = plusMinus.addEventListener("click", function (e) {
 var handleEquals = equals.addEventListener("click", function (e) {
   var newValuesArr = buttonValuesArr.join("");
   var stringOfValues = newValuesArr.toString(); //use reg-ex to extract values before the operator
-  //const firstNumber = stringOfValues.match(/[^\+\*\-\/]*/);
 
-  var firstNumber = stringOfValues.match(/^[^\s]*/); //const secondNumber = stringOfValues.match(/[^\+\*\-\/]*$/);
-
+  var firstNumber = stringOfValues.match(/^[^\s]*/);
   var secondNumber = stringOfValues.match(/[^\s]*$/); //const operator = stringOfValues.match(/[\+|\*|\-|\/]/);
 
   var operator = stringOfValues.match(/(?<=\s)[\+|\x|\-|\÷](?=\s)/); //if statement to calculate output based on operator value
@@ -66,7 +63,7 @@ var handleEquals = equals.addEventListener("click", function (e) {
   }
 }); //clear button functionality
 
-var clickClear = clear.addEventListener("click", function (e) {
+var handleClear = clear.addEventListener("click", function (e) {
   buttonValuesArr.length = 0; //resets array to 0 length
 
   display.innerHTML = "";
