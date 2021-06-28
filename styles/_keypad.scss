@@ -68,7 +68,6 @@
 
 
 
-
 @media screen and (min-width: 470px) {
   .calculator__keys {
     button {
@@ -95,6 +94,25 @@
     #zero {
       width: 220px;
       height: 60px;
+     
+    }
+
+  }
+  }
+
+@media screen and (min-width: 1024px) {
+
+  .calculator__keys {
+    
+    button {
+      width: 100px;
+      height: 100px;
+     
+    }
+
+    #zero {
+      width: 280px;
+      height: 80px;
      
     }
 
