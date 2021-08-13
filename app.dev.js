@@ -28,11 +28,11 @@ var handlePlusMinusToggle = plusMinus.addEventListener("click", function (e) {
     buttonValuesArr.splice(buttonValuesArr.length - 2);
     display.innerHTML = buttonValuesArr.join("");
   }
-}); //extract values from array to use in sum
+}); //function to perform calculation - extractw values from array to use in the sum
 
 var handleEquals = equals.addEventListener("click", function (e) {
   var newValuesArr = buttonValuesArr.join("");
-  var stringOfValues = newValuesArr.toString(); //use reg-ex to extract values before the operator
+  var stringOfValues = newValuesArr.toString(); //use reg-ex to extract values before the operator  
 
   var firstNumber = stringOfValues.match(/^[^\s]*/);
   var secondNumber = stringOfValues.match(/[^\s]*$/); //const operator = stringOfValues.match(/[\+|\*|\-|\/]/);

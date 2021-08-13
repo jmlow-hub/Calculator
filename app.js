@@ -28,20 +28,18 @@ const handlePlusMinusToggle = plusMinus.addEventListener("click", (e) => {
  )
 
 
-//extract values from array to use in sum
-const handleEquals = equals.addEventListener("click", (e) => {
-  const newValuesArr = buttonValuesArr.join("");
-  const stringOfValues = newValuesArr.toString();
+//function to perform calculation - extractw values from array to use in the sum
+  const handleEquals = equals.addEventListener("click", (e) => {
+    const newValuesArr = buttonValuesArr.join("");
+    const stringOfValues = newValuesArr.toString();
 
-  //use reg-ex to extract values before the operator
-  
-  const firstNumber = stringOfValues.match(/^[^\s]*/);
-
+  //use reg-ex to extract values before the operator  
+    const firstNumber = stringOfValues.match(/^[^\s]*/);
  
-  const secondNumber = stringOfValues.match(/[^\s]*$/);
+    const secondNumber = stringOfValues.match(/[^\s]*$/);
 
   //const operator = stringOfValues.match(/[\+|\*|\-|\/]/);
-  const operator = stringOfValues.match(/(?<=\s)[\+|\x|\-|\÷](?=\s)/);
+    const operator = stringOfValues.match(/(?<=\s)[\+|\x|\-|\÷](?=\s)/);
 
    
     //if statement to calculate output based on operator value
@@ -69,10 +67,10 @@ const handleEquals = equals.addEventListener("click", (e) => {
 
 
 //clear button functionality
- const handleClear = clear.addEventListener("click", (e) => {
+    const handleClear = clear.addEventListener("click", (e) => {
     
-  buttonValuesArr.length = 0;//resets array to 0 length
-  display.innerHTML = "";
+    buttonValuesArr.length = 0;//resets array to 0 length
+    display.innerHTML = "";
 
 })
 
