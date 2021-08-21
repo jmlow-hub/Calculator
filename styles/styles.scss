@@ -3,6 +3,7 @@
  @import "_variables";
  @import "_calculator";
  @import "_keypad";
+ @import "./background";
 
 
 * {
@@ -12,11 +13,14 @@
   
 }
 
-main {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: space-around;
-
-  align-items: center;
+body {
+  background: linear-gradient(315deg, rgb(88, 105, 147) 0%, hsla(180, 5%, 65%, 1) 20%, hsla(104, 16%, 73%, 1) 39%, hsla(104, 16%, 73%, 1) 61%, hsla(180, 5%, 65%, 1) 80%, hsla(223, 25%, 46%, 1) 100%);
+  
 }
+
+@media screen and (max-width: 500px) {
+  body {
+    background: black;
+}
+}
+  

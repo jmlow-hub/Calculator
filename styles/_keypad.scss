@@ -5,11 +5,12 @@
   width: 95%;
   display: grid;
   grid-template-columns: repeat(4, minmax(10px, 1fr));
-
   justify-items: center;
   align-items: center;
   padding-bottom: 50px;
   gap: 10px;
+  font-family: $font;
+  font-weight: bold;
   
       
   &__misc {
@@ -41,6 +42,10 @@
     font-size: 1.5em;
     border: none;
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
     
       
   }
@@ -64,32 +69,11 @@
 
 
 
-@media screen and (min-width: 540px) {
+@media screen and (max-width: 500px) {
   .calculator__keys {
-    button {
-    height: 80px;
-    width: 80px;
-    font-size: 175%;
-    }
+    width: 350px;
+    height: 600px;
 
-    #zero {
-      width: 250px;
-      height: 80px;
-     
-}
-  }
-}
 
-@media screen and (min-width: 1220px) {
-  .calculator__keys {
-    button {
-      height: 100px;
-      width: 100px;
-    }
-
-    #zero {
-      width: 350px;
-      height: 80px;
-    }
   }
 }
