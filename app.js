@@ -27,9 +27,18 @@ const handlePlusMinusToggle = plusMinus.addEventListener("click", (e) => {
   }
  )
 
+ //clear button functionality
+ const handleClear = clear.addEventListener("click", (e) => {
+    
+  buttonValuesArr.length = 0;//resets array to 0 length
+  display.innerHTML = "";
+
+})
 
 //function to perform calculation - extractw values from array to use in the sum
   const handleEquals = equals.addEventListener("click", (e) => {
+
+       
     const newValuesArr = buttonValuesArr.join("");
     const stringOfValues = newValuesArr.toString();
 
@@ -62,17 +71,13 @@ const handlePlusMinusToggle = plusMinus.addEventListener("click", (e) => {
   } else {
     display.innerHTML = total.toFixed(5);
   }
-  
+
+    buttonValuesArr.length = 0;//resets array to 0 length
+      
   })
 
 
-//clear button functionality
-    const handleClear = clear.addEventListener("click", (e) => {
-    
-    buttonValuesArr.length = 0;//resets array to 0 length
-    display.innerHTML = "";
 
-})
 
 
   

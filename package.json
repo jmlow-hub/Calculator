@@ -1,0 +1,24 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Welcome to my JavaScript Calculator project\r this is my first project with javascript\r the key deliverables were to deliver a calculator to a display spec provided (might look familiar.....) using javascript to program the functionality and interact with the DOM\r I decided to base by calcultor around an arrays so that I could push values on button clicks and then display the multiple values in the array\r I used a separate array and a for loop to target all of the calculator buttons at once and then I used regular expressions to extract the numbers I needed for the calculations\r I added a +/- button that toggles the negative value on or off so that negative numbers can be used and a clear button which clears the current number display back to empty",
+  "main": "app.dev.js",
+  "dependencies": {
+    "cypress": "^8.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmlow-hub/calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmlow-hub/calculator/issues"
+  },
+  "homepage": "https://github.com/jmlow-hub/calculator#readme"
+}
